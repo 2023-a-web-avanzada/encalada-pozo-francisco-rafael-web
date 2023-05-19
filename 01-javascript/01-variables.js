@@ -98,3 +98,34 @@ delete rafa.nombre
 console.log(Object.keys(rafa))
 console.log(Object.values(rafa))
 console.log(rafa)
+
+// variables por valor o por referencia
+// variables por valor
+// Primitivas: number, string, boolean
+let edadRafa = 23;
+let edadFrancisco = edadRafa;
+console.log(edadRafa)//23
+console.log(edadFrancisco)//23
+
+edadRafa += 1;
+
+console.log(edadRafa)//24
+console.log(edadFrancisco)//23
+
+//variables por referencia
+// Object: {} []
+let notas = {
+    total: 10
+}
+let notasSegundoBimestre = notas; //IGUALACIÓN POR REFERENCIA
+notasSegundoBimestre.total += 1;
+console.log(notas) //11
+console.log(notasSegundoBimestre) //11
+
+//Como clonar objetos
+let notasTercerBimesre = Object.assign({},notas);
+notasTercerBimesre.total += 1;
+console.log(notas) //11
+console.log(notasSegundoBimestre) //11
+console.log(notasTercerBimesre) //12
+
