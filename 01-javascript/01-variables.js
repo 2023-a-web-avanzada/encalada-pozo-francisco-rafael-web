@@ -70,3 +70,31 @@ const rafa = {
 
     mascotas: ["a","n"]
 }
+
+//acceder a propiedades
+rafa.nombre // Rafael
+rafa.apellido // Encalada
+rafa["nombre"] // Rafael
+
+// modificar valores
+rafa.nombre = "Francisco"
+rafa["nombre"] = "Rafa"
+
+// crear atributos
+rafa.sueldo; //undefined
+console.log(rafa.sueldo) // undefined
+rafa.sueldo = 12;
+console.log(rafa.sueldo) // 12
+rafa.gastos = 8
+
+console.log(rafa)
+
+//eliminar propiedades
+rafa.nombre = undefined
+console.log(Object.keys(rafa))
+console.log(Object.values(rafa))
+
+delete rafa.nombre
+console.log(Object.keys(rafa))
+console.log(Object.values(rafa))
+console.log(rafa)
