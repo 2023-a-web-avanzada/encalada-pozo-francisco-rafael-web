@@ -1,10 +1,12 @@
+'use client'
+// app/componentes/c_menu.component.tsx
 export default function C_menuComponent(){
     return (
         <>
             <ul>
-                <li><a href={"/"}>Home</a></li>
-                <li><a href={"/a_hola_mundo"}>A</a></li>
-                <li><a href={"b_hola_mundo/"}>B</a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/a_hola_mundo">A Hola mundo</a></li>
+                <li><a href="/b_hola_mundo">B Hola mundo</a></li>
             </ul>
         </>
     )
