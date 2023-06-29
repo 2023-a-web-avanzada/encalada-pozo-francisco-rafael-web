@@ -1,3 +1,4 @@
+// d_use_state/page.tsx
 'use client'
 import {useEffect, useState} from "react";
 
@@ -7,69 +8,88 @@ interface Usuario {
     casado: boolean;
     hijos?: number[];
 }
-
-export default function Page() {
+export default function Page(){
     const [numero, setNumero] = useState(0);
     const [arregloNumeros, setArregloNumeros] = useState([1, 2, 3] as number[]);
     const [usuario, setUsuario] = useState({
-        nombre: "Rafael",
-        edad: 23,
-        casado: false,
+        nombre: "Adrian",
+        edad: 33,
+        casado: true,
     } as Usuario)
 
+    // ayuda escuchar cambios variables
     useEffect(
-        () => {
+        ()=>{
             console.log('INICIO EL COMPONENTE',
                 numero, usuario);
         },
-        [] // arreglo de variables
+        []  // arregloVariables
         // Si esta vacio se ejecuta al principio una vez
     );
-
     useEffect(
-        () => {
-            console.log('Cambio numeo', numero);
+        ()=>{
+            console.log('Cambio numero', numero);
         },
-        [numero]// arregloVaribles
+        [numero]  // arregloVariables
     );
+
+
+
+
+
 
     useEffect(
         ()=>{
-            console.log('Cambio ArregloNumeros',
+            console.log('Cambio arregloNumeros',
                 arregloNumeros);
         },
-        [arregloNumeros] // arregloVariables
+        [arregloNumeros]  // arregloVariables
+    );
+    useEffect(
+        ()=>{
+            console.log('Cambio usuario', usuario);
+        },
+        [usuario]  // arregloVariables
     );
 
     useEffect(
         ()=>{
-            console.log("cambio usuario", usuario);
+            console.log('Cambio todo', numero, arregloNumeros, usuario);
         },
-        [usuario] //arregloVariables
+        [numero, arregloNumeros, usuario]  // arregloVariables
     );
 
-    return (<>
-        <button
-            className="bg-blue-500 m-2"
-            onClick={(event) => {
+
+
+
+
+
+
+
+
+
+
+
+    return (
+        <>
+            <button className="bg-blue-500 m-2" onClick={(event)=>{
                 event.preventDefault();
                 setNumero(numero + 1);
             }}>
-            Numero {numero}</button>
-        <button
-            className="bg-blue-500 m-2"
-            onClick={(event) => {
+                Numero {numero}</button>
+            <button className="bg-red-500 m-2" onClick={(event)=>{
                 event.preventDefault();
                 setArregloNumeros([...arregloNumeros, 1]);
-            }}>
-            Arreglo {arregloNumeros}</button>
-        <button
-            className="bg-blue-500 m-2"
-            onClick={(event) => {
+            }}
+            >
+                Arreglo {JSON.stringify(arregloNumeros)}</button>
+            <button className="bg-yellow-500 m-2" onClick={(event)=>{
                 event.preventDefault();
                 let usuarioNuevo = {...usuario, nombre: new Date().toString()};
-                setUsuario(usuarioNuevo)
-            }}>
-            Usuario {JSON.stringify(usuario)}</button>
-    </>)
+                setUsuario(usuarioNuevo);
+            }}
+            >
+                Usuario {JSON.stringify(usuario)}</button>
+        </>
+    )
 }
