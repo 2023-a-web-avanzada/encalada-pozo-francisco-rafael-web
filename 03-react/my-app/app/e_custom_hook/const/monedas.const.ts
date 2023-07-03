@@ -1,4 +1,4 @@
-
+"use client"
 // e_custom_hook/const/monedas.const.ts
 import {Moneda} from "@/app/e_custom_hook/interfaces/moneda";
 export const MonedasConst: Moneda[] = [
