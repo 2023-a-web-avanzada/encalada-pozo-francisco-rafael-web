@@ -1,0 +1,419 @@
+* {
+    box-sizing: border-box;
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.sidebar {
+    background: rgb(32, 32, 32);
+    height: 100%;
+    position: relative;
+    pointer-events: auto;
+    width: 250px;
+    color: rgb(155, 155, 155);
+}
+
+.workspace {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.switcher {
+    display: flex;
+    height: 45px;
+    width: 100%;
+}
+
+.sidebar-button {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 8px);
+    font-size: 14px;
+    min-height: 27px;
+    padding: 2px 10px;
+    margin: 1px 4px 1px 4px;
+    user-select: none;
+    transition: background 20ms ease-in 0s;
+    cursor: pointer;
+    border-radius: 3px;
+
+}
+
+.scroller {
+    padding-top: 6px;
+    padding-bottom: 20px;
+    z-index: 1;
+    overflow: hidden auto;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+.bookmarks-container {
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.bookmarks-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 14px;
+    min-height: 24px;
+    padding: 0 14px 0 15px;
+    margin: 6px 0 2px 0;
+}
+
+.notion-emoji {
+    width: 100%;
+    height: 100%;
+}
+
+.notion-emoji::before {
+    visibility: hidden;
+}
+
+.page-block-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 14px;
+    min-height: 27px;
+    padding: 2px 10px 2px 5px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    border-radius: 3px;
+}
+
+.emoji-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 14px;
+    width: 14px;
+    font-size: 14px;
+    line-height: 1;
+    margin-left: 0;
+    color: rgb(246, 246, 246);
+    margin-right: 8px;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.svg-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 3px;
+    color: rgba(255, 255, 255, 0.445);
+    width: 22px;
+    height: 22px;
+    justify-content: center;
+    margin-right: 0
+}
+
+.text-container {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+.view-container {
+    user-select: none;
+    transition: background 20ms ease-in 0s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+    height: 28px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.2;
+    min-width: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-weight: 500;
+    max-width: 220px;
+}
+
+.all-views-container {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    box-shadow: rgb(47, 47, 47) 0 -1px 0 inset;
+    width: 100%;
+    margin-right: 96px;
+}
+
+.col-resize {
+    cursor: col-resize;
+    height: 100%;
+    width: 12px;
+    margin-left: -6px;
+    position: absolute;
+    right: 0;
+    flex-grow: 0;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    pointer-events: auto;
+}
+
+.top-bar {
+    min-height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+    padding-left: 12px;
+    padding-right: 10px;
+    max-width: 100vw;
+    z-index: 100;
+    background: rgb(25, 25, 25);
+    user-select: none;
+    width: 100%;
+    opacity: 1;
+    transition: opacity 700ms ease 0s, color 700ms ease 0s;
+    position: relative;
+}
+
+.cover-container {
+    display: grid;
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: 30vh;
+    object-position: center 30%;
+    z-index: -1;
+}
+
+.cover {
+    display: block;
+    object-fit: cover;
+    border-radius: 0;
+    width: 100%;
+    height: 30vh;
+    opacity: 1;
+    object-position: center 30%;
+}
+
+.page-content-container {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    flex-grow: 1;
+    position: relative;
+    align-items: center;
+    margin-right: 0;
+    margin-bottom: 0;
+    overflow: hidden auto;
+    flex-shrink: 1;
+    background: rgb(25, 25, 25);
+    height: calc(-45px + 100vh);
+    max-height: 100%;
+    padding-bottom: 274px;
+}
+
+.header-title-container {
+    background: #191919;
+    z-index: 4;
+    padding-left: calc(96px + env(safe-area-inset-left));
+    width: 100%;
+    user-select: none;
+    --pseudoSelection--background: transparent;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-bottom: 10px;
+}
+
+.add-comment-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    margin-left: -1px;
+    color: rgba(255, 255, 255, 0.283);
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    height: 24px;
+    pointer-events: auto;
+}
+
+.add-comment {
+    user-select: none;
+    transition: opacity 100ms ease 0s;
+    cursor: pointer;
+    opacity: 0;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+    height: 28px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.2;
+    min-width: 0;
+    padding-left: 6px;
+    padding-right: 8px;
+    color: rgba(255, 255, 255, 0.283);
+    pointer-events: none;
+    margin-bottom: -16px;
+}
+
+.title-container {
+    max-width: 100%;
+    width: 100%;
+    white-space: pre-wrap;
+    word-break: break-word;
+    caret-color: rgba(255, 255, 255, 0.81);
+    padding: 3px 2px;
+    color: rgba(255, 255, 255, 0.81);
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 40px;
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    cursor: text;
+    display: flex;
+    align-items: center;
+}
+
+.page-icon-container {
+    width: 78px;
+    height: 78px;
+    background: url("https://www.notion.so/images/emoji/twitter-emoji-spritesheet-64.d3a69865.png") 49.1525% 28.8136% / 6000% 6000%;
+    opacity: 1;
+    transition: opacity 100ms ease-out 0s;
+    position: relative;
+    font-size: 78px;
+    line-height: 1;
+    margin-left: 0;
+    color: rgb(246, 246, 246);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 0.25em;
+    flex-shrink: 0;
+    z-index: 1;
+    margin-bottom: 0;
+    margin-top: -42px;
+    pointer-events: auto;
+    --pseudoSelection--background: transparent;
+}
+
+.page-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 78px;
+    height: 78px;
+}
+
+.database-title {
+    padding-top: 8px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.database-item {
+    display: flex;
+    color: inherit;
+    text-decoration: none;
+    user-select: none;
+    transition: background 100ms ease-out 0s;
+    cursor: pointer;
+    box-shadow: rgba(15, 15, 15, 0.2) 0 0 0 1px, rgba(15, 15, 15, 0.2) 0 2px 4px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.055);
+    overflow: hidden;
+    position: static;
+    height: 100%;
+    flex-direction: column;
+}
+
+.database-image-container {
+    height: 102px;
+    position: relative;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.database-image {
+    display: block;
+    object-fit: cover;
+    border-radius: 1px 1px 0 0;
+    width: 100%;
+    object-position: center 50%;
+}
+
+.database-item .page-block-container {
+    width: 100%;
+    display: flex;
+    padding: 8px 10px 10px;
+    position: relative;
+}
+
+.database-items-container {
+    min-width: calc(100% - 192px);
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    padding-top: 16px;
+    padding-bottom: 4px;
+    padding-right: 96px;
+}
+
+.text-block-container {
+    min-height: 38px;
+    height: fit-content;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    white-space: pre-wrap;
+    word-break: break-word;
+    caret-color: rgba(255, 255, 255, 0.81);
+    padding: 0 96px;
+}
+
+.input {
+    border: none;
+    display: inline;
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    outline: none;
+    background-color: #191919;
+}
+
+.sync-block-container:focus {
+    padding: 10px 0;
+    display: inline;
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    position: relative;
+    inset: 0 -2px;
+    pointer-events: none;
+    border-radius: 6px;
+    border: 2px solid rgb(110, 54, 48);
+    opacity: 1;
+    overflow: visible;
+}
+

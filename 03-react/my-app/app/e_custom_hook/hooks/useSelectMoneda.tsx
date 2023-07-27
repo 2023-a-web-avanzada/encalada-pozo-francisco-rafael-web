@@ -1,4 +1,4 @@
-
+"use client"
 // e_custom_hook/hooks/useSelectMoneda.tsx
 import {Moneda} from "@/app/e_custom_hook/interfaces/moneda";
 import {useState} from "react";
