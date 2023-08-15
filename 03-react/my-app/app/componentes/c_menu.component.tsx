@@ -15,6 +15,7 @@ export default function C_menuComponent(){
                 <li><a href="/h_mui_konsta">h_mui_konsta</a></li>
                 <li><a href="/i_react_hook_form">i_hooks_forms</a></li>
                 <li><a href="/j_ruta/id1/2023A">j_ruta</a></li>
+                <li><a href="/k_websockets">k_websockets</a></li>
             </ul>
         </>
     )
